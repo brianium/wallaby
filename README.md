@@ -15,7 +15,8 @@ Add the following dependency to your `project.clj` file:
 ## Usage
 
 ```clojure
-(ns my-walmart.app)
+(ns my-walmart.app
+  (:require [wallaby.core :refer :all]))
 
 ;; Product Lookup Operation
 (def result (product-lookup {:apiKey "my-api-key"
