@@ -2,21 +2,10 @@
   "Functions for working with the Walmart Open API"
   (:require [clojure.data.json :as json]
             [clojure.string :refer [join]]
-            [org.httpkit.client :as http])
-  (:import  [java.net URLEncoder]))
+            [org.httpkit.client :as http]
+            [query-string.core :as query]))
 
 (def ^:const endpoint "https://api.walmartlabs.com/v1")
-
-(defn- join-pair
-  "Join a key/value pair for use in a query string"
-  [[k,v]]
-  (str (name k) "=" (URLEncoder/encode v)))
-
-(defn- query
-  "Convert the parameter map into a query string"
-  [params]
-  (->> (map join-pair params)
-       (join "&")))
 
 (defn- handle-response
   "Returns the response body as a map"
@@ -27,7 +16,7 @@
   "Performs a request against the Walmart Open API and returns a map"
   ([api params config]
   {:pre [(contains? params :apiKey)]}
-   (-> (str endpoint "/" api "?" (query params))
+   (-> (str endpoint "/" api "?" (query/create params))
        (http/get config handle-response)))
   ([api params] (request api params {})))
 
