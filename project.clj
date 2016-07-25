@@ -1,4 +1,4 @@
-(defproject wallaby "0.1.1"
+(defproject wallaby "0.2.0"
   :description "Library for working with the Walmart Open API"
   :url "http://github.com/wallaby"
   :license {:name "Eclipse Public License"

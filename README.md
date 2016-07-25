@@ -9,7 +9,7 @@ A Clojure library designed to simplify working with the Walmart Open API
 Add the following dependency to your `project.clj` file:
 
 ```
-[wallaby "0.1.1"]
+[wallaby "0.2.0"]
 ```
 
 ## Usage

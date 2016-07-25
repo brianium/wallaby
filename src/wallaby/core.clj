@@ -10,7 +10,7 @@
 (defn- handle-response
   "Returns the response body as a map"
   [{:keys [body]}]
-  (json/read-str body))
+  (json/read-str body :key-fn #(keyword %)))
 
 (defn request
   "Performs a request against the Walmart Open API and returns a map"
